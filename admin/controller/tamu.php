@@ -24,7 +24,7 @@ switch (@$_GET['page']){
             $sql = "INSERT INTO tamu (nama_tamu, nik, jenis_kelamin, alamat) 
             VALUES ('$_POST[nama_tamu]', '$_POST[nik]', '$_POST[jenis_kelamin]', '$_POST[alamat]')";
             if ($conn->query($sql) === TRUE) {
-                header('Location: http://localhost:8080/php/admin/?mode=tamu');
+                header('Location: http://localhost:8080/php/admin/?mod=tamu');
             }else {
                 $err['msg']= "Error: " . $sql . "<br>" . $conn->error;
             }}
@@ -43,7 +43,7 @@ switch (@$_GET['page']){
     case 'delete';
         $tamu ="delete from tamu where md5(nik)='$_GET[id]'";
         $tamu=$conn->query($tamu);
-        header('Location: http://localhost:8080/php/admin/?mode=tamu');
+        header('Location: http://localhost:8080/php/admin/?mod=tamu');
     break;
     default:
     $sql = "select * from tamu";
